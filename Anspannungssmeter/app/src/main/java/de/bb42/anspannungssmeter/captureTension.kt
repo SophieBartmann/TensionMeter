@@ -4,9 +4,11 @@ import android.graphics.Color
 import android.icu.text.AlphabeticIndex
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.LinearLayout
-import android.widget.SeekBar
-import android.widget.TextView
+import android.support.constraint.Guideline
+import android.support.v7.app.ActionBar
+import android.text.Editable
+import android.view.Window
+import android.widget.*
 import de.bb42.anspannungssmeter.tensionBarChangeListener
 
 class captureTension : AppCompatActivity() {
@@ -15,12 +17,29 @@ class captureTension : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_capture_tension)
         val tensionNumber = findViewById(R.id.tensionNumber) as TextView
+        val window = this.window as Window
         tensionNumber.setText("0")
         val layout = findViewById(R.id.tensionLayout) as LinearLayout
 
         val tensionBar = findViewById(R.id.tensionBar) as SeekBar
-        tensionBar.setOnSeekBarChangeListener(tensionBarChangeListener(tensionNumber,layout))
+        tensionBar.setOnSeekBarChangeListener(tensionBarChangeListener(tensionNumber,layout, window))
+        val saveButton = findViewById(R.id.saveButton) as Button
+        saveButton.setOnClickListener {
+            if( tensionBar.progress == 0){
+
+            }else{
+            android.util.Log.println(android.util.Log.DEBUG, "SaveButton", tensionBar.progress.toString())
+            finish() }
+        }
+        val editText = findViewById(R.id.WhatIsGoingOn) as EditText
+        editText.setOnClickListener{
+            android.util.Log.println(android.util.Log.DEBUG, "editTextButton", editText.text.toString())
+            if(editText.text.toString().equals("Was ist los?")){
+                android.util.Log.println(android.util.Log.DEBUG, "editTextButton equal", editText.text.toString())
+                editText.setText("")
+            }
+        }
+        editText.setOn
 
     }
 }
-

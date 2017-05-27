@@ -1,19 +1,22 @@
 package de.bb42.anspannungssmeter
 
 import android.graphics.Color
+import android.support.constraint.Guideline
+import android.view.Window
 import android.widget.LinearLayout
 
 import android.widget.SeekBar
 import android.widget.TextView
 
 
-class tensionBarChangeListener(val tensionNumber: TextView, val layout:LinearLayout) : SeekBar.OnSeekBarChangeListener{
+class tensionBarChangeListener(val tensionNumber: TextView, val layout:LinearLayout, val window: Window) : SeekBar.OnSeekBarChangeListener{
     override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {
         android.util.Log.println(android.util.Log.DEBUG, "Seekbar", progress.toString())
         tensionNumber.setText(progress.toString())
         seekBar?.setBackgroundColor(Color.rgb(buildColorRed(progress),buildColorGreen(progress),buildColorBlue(progress)))
         layout.setBackgroundColor(Color.rgb(buildColorRed(progress),buildColorGreen(progress),buildColorBlue(progress)))
         tensionNumber.setBackgroundColor(Color.rgb(buildColorRed(progress),buildColorGreen(progress),buildColorBlue(progress)))
+        window.statusBarColor = Color.rgb(buildColorRed(progress),buildColorGreen(progress),buildColorBlue(progress))
     }
 
     override fun onStartTrackingTouch(seekBar: SeekBar?) {

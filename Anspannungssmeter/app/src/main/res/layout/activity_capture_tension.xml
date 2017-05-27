@@ -63,14 +63,24 @@
         <LinearLayout layout_weight="1"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="1"
-            android:orientation="horizontal">
+            android:layout_weight="2"
+            android:orientation="vertical">
 
+
+            <EditText
+                android:id="@+id/WhatIsGoingOn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:ems="10"
+                android:inputType="text"
+                android:text="Was ist los?" />
 
             <Button
-                android:id="@+id/tensionSave"
+                android:id="@+id/saveButton"
                 android:textAlignment="center"
-                android:textSize="22dp"
+                android:layout_weight="1"
+                android:textSize="24dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Save" />
