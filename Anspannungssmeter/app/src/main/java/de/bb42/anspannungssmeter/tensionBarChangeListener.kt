@@ -1,10 +1,8 @@
 package de.bb42.anspannungssmeter
 
 import android.graphics.Color
-import android.support.constraint.Guideline
 import android.view.Window
 import android.widget.LinearLayout
-
 import android.widget.SeekBar
 import android.widget.TextView
 
@@ -42,10 +40,10 @@ class tensionBarChangeListener(val tensionNumber: TextView, val layout:LinearLay
         if (color > 30){
             return 165
         }
-        return 255
+        return 173
     }
     fun buildColorBlue(color:Int): Int{
 
-        return 0
+        return 47
     }
 }

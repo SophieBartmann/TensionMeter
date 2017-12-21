@@ -1,15 +1,9 @@
 package de.bb42.anspannungssmeter
 
-import android.graphics.Color
-import android.icu.text.AlphabeticIndex
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
-import android.support.constraint.Guideline
-import android.support.v7.app.ActionBar
-import android.text.Editable
+import android.support.v7.app.AppCompatActivity
 import android.view.Window
 import android.widget.*
-import de.bb42.anspannungssmeter.tensionBarChangeListener
 
 class captureTension : AppCompatActivity() {
 
@@ -28,8 +22,9 @@ class captureTension : AppCompatActivity() {
             if( tensionBar.progress == 0){
 
             }else{
-            android.util.Log.println(android.util.Log.DEBUG, "SaveButton", tensionBar.progress.toString())
-            finish() }
+                android.util.Log.println(android.util.Log.DEBUG, "SaveButton", tensionBar.progress.toString())
+                finish()
+            }
         }
         val editText = findViewById(R.id.WhatIsGoingOn) as EditText
         editText.setOnClickListener{
@@ -39,7 +34,7 @@ class captureTension : AppCompatActivity() {
                 editText.setText("")
             }
         }
-        editText.setOn
+
 
     }
 }
